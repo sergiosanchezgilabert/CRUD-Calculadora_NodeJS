@@ -132,9 +132,13 @@ async function logicaCalculadora(req, res){
 
     todos = await Numero.find()
 
+    console.log(req.query.inputId)
     //Mando la informacion de los #_id al EJS (HTML)
     res.status(200).render('pages/index', {
-        todos: todos
+        todos: todos,
+        _id: req.query.inputId,
+        numero:req.query.inputNumber,
+        operacion:req.query.inputOperacion
     });
 }
 

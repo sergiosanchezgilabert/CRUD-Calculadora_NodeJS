@@ -17,20 +17,21 @@
             <form id="formulario" action="http://localhost:3000/" method="GET">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="inputId">Id</label>
-                        <input type="text" name="inputId" class="form-control" id="inputId" placeholder="">
+                        <label for="inputId">Id </label>
+                        <input type="text" name="inputId" value=' <%= _id %> ' class="form-control" id="inputId" placeholder="">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputNumber">Numero</label>
-                        <input type="number" name="inputNumber" class="form-control" id="inputNumber" placeholder="Number">
+                        <label for="inputNumber">Numero </label>
+                        <input type="number" name="inputNumber" value= <%= numero %>  class="form-control" id="inputNumber" placeholder="Number">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputOperacion">Operacion</label>
                         <select id="inputOperacion"  name="inputOperacion" class="form-control">
+                            <option selected="selected"><%= operacion %>(Anterior)</option>
                             <option selected>Sumar</option>
                             <option selected>Restar</option>
                             <option selected>Multiplicar</option>
@@ -51,7 +52,8 @@
 
         <div class="jumbotron">
             <h1>Historico</h1>
-
+            <h2><%= _id %></h2>
+            <h2><%= numero %></h2>
             <table class="table">
                 <thead>
                   <tr>
