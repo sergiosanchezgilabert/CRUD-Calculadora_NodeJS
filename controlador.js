@@ -25,22 +25,26 @@ function calcularTotal(numeroAct, operacion, num) {
 
             break;
         case 'Restar':
-            resul = numeroAct.total - num
+            resul = parseInt(numeroAct.total) - parseInt(num)
             console.log('Restando: ' + resul)
 
             break;
         case 'Multiplicar':
-            resul = numeroAct.total * num
+            resul = parseInt(numeroAct.total) *parseInt(num)
             console.log('Multiplicando: ' + resul)
 
             break;
         case 'Dividir':
-            resul = numeroAct.total / num
+            resul = parseInt(numeroAct.total) / parseInt(num)
             console.log('Dividiendo: ' + resul)
 
             break;
     }
-    if (resul === -99999) console.log('Operacion no valida')
+    if (resul === -99999 || resul === Infinity){
+        console.log('Operacion no valida')
+        resul=numeroAct.total
+        return resul
+    } 
     return resul
 }
 
