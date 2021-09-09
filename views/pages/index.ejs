@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head'); %>
 </head>
+
 <body class="container">
 
     <header>
@@ -11,16 +13,63 @@
 
     <main>
         <div class="jumbotron">
-            <h1>Top Mascots</h1>
-            <p><%= tagline %></p>
-            <ul>
-                <% mascots.forEach(function(mascot) { %>
-                    <li>
-                        <strong><%= mascot.name %></strong>
-                        representing <%= mascot.organization %>, born <%= mascot.birth_year %>
-                    </li>
-                <% }); %>
-            </ul>
+            <h1>¿Que operacion quieres hacer?</h1>
+            <form id="formulario" action="http://localhost:3000/" method="GET">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputId">Id</label>
+                        <input type="text" name="inputId" class="form-control" id="inputId" placeholder="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNumber">Numero</label>
+                        <input type="number" name="inputNumber" class="form-control" id="inputNumber" placeholder="Number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputOperacion">Operacion</label>
+                        <select id="inputOperacion"  name="inputOperacion" class="form-control">
+                            <option selected>Sumar</option>
+                            <option selected>Restar</option>
+                            <option selected>Multiplicar</option>
+                            <option selected>Dividir</option>
+                            <option selected>Limpiar</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-row">
+
+                
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="reset" class="btn btn-primary">Limpiar</button>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Historico</h1>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Operaciones</th>
+                    <th scope="col">Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% todos.forEach(function(numero) { %>
+                  <tr>
+                    <th scope="row"><%= numero._id %></th>
+                    <td><%= numero.operaciones %></td>
+                    <td><%= numero.total %></td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
         </div>
     </main>
 
@@ -29,4 +78,5 @@
     </footer>
 
 </body>
+
 </html>
